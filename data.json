@@ -1,0 +1,9 @@
+{
+"app_id" : "app_id",
+"publisher_id" : "publisher_id",
+"ban_id" : "ban_id",
+"int_id" : "int_id",
+"int_frequency" : 5,
+"ads_elegible" : false,
+"privacy_url" : "privacy_url"
+}
