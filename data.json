@@ -1,9 +1,9 @@
 {
-"app_id" : "app_id",
+"app_id" : "a-app-pub-3940256099942544~3347511713",
 "publisher_id" : "publisher_id",
-"ban_id" : "ban_id",
-"int_id" : "int_id",
+"ban_id" : "ca-app-pub-3940256099942544/6300978111",
+"int_id" : "ca-app-pub-3940256099942544/1033173712",
 "int_frequency" : 5,
-"ads_elegible" : false,
+"ads_elegible" : true,
 "privacy_url" : "privacy_url"
 }
