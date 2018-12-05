@@ -4,7 +4,7 @@
 "ban_id" : "ca-app-pub-3940256099942544/2934735716",
 "int_id" : "ca-app-pub-3940256099942544/4411468910",
 "int_frequency" : 1,
-"ads_elegible" : false,
+"ads_elegible" : true,
 "privacy_url" : "https://github.com/elhichamleme/privacy"
 }
 
