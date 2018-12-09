@@ -1,8 +1,8 @@
 {
-"app_id" : "ca-app-pub-3940256099942544~3347511713",
+"app_id" : "",
 "publisher_id" : "pub-123456",
-"ban_id" : "ca-app-pub-3940256099942544/6300978111",
-"int_id" : "ca-app-pub-3940256099942544/1033173712",
+"ban_id" : "",
+"int_id" : "",
 "int_frequency" : 1,
 "ads_elegible" : false,
 "privacy_url" : "https://github.com/elhichamleme/privacy"
