@@ -5,5 +5,9 @@
 "int_id" : "ca-app-pub-3940256099942544/1033173712",
 "int_frequency" : 3,
 "ads_elegible" : true,
-"privacy_url" : "https://github.com/elhichamleme/privacy"
+"privacy_url" : "https://github.com/elhichamleme/privacy",
+ "ads_network" : "",
+ "appodeal_id" : "",
+ "banner_fb" : "",
+ "interstitial_fb" : ""
 }
