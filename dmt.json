@@ -6,7 +6,7 @@
 "int_frequency" : 5,
 "ads_elegible" : true,
 "privacy_url" : "https://github.com/elhichamleme/privacy",
- "ads_network" : "",
+ "ads_network" : "am",
  "appodeal_id" : "",
  "banner_fb" : "",
  "interstitial_fb" : ""
