@@ -4,10 +4,10 @@
 "ban_id" : "ca-app-pub-3940256099942544/6300978111",
 "int_id" : "ca-app-pub-3940256099942544/1033173712",
 "int_frequency" : 5,
-"ads_elegible" : false,
+"ads_elegible" : true,
 "privacy_url" : "https://github.com/elhichamleme/privacy",
- "ads_network" : "fb",
- "appodeal_id" : "aa7d02628ca8dbd021fa37d9d32a72180a47559bb5b8f84b",
+ "ads_network" : "ad",
+ "appodeal_id" : "0994da27db53aa32fb15fb93ff732f4749149f88df5af1fc",
  "banner_fb" : "700376047003453_706634349710956",
  "interstitial_fb" : "700376047003453_700379310336460"
 }
