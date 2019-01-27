@@ -3,11 +3,13 @@
 "publisher_id" : "pub-123456",
 "ban_id" : "ca-app-pub-3940256099942544/6300978111",
 "int_id" : "ca-app-pub-3940256099942544/1033173712",
+"reward_video_id" : "ca-app-pub-3940256099942544/1712485313",
 "int_frequency" : 5,
 "ads_elegible" : false,
 "privacy_url" : "https://github.com/elhichamleme/privacy",
  "ads_network" : "am",
  "appodeal_id" : "aa7d02628ca8dbd021fa37d9d32a72180a47559bb5b8f84b",
  "banner_fb" : "1394211310715380_1394212397381938",
- "interstitial_fb" : "1394211310715380_1394211780715333"
+ "interstitial_fb" : "1394211310715380_1394211780715333",
+ "reward_video_fb" : ""
 }
