@@ -5,7 +5,7 @@
 "int_id" : "ca-app-pub-3940256099942544/1033173712",
 "reward_video_id" : "ca-app-pub-3940256099942544/1712485313",
 "int_frequency" : 5,
-"ads_elegible" : true,
+"ads_elegible" : false,
 "privacy_url" : "https://github.com/elhichamleme/privacy",
  "ads_network" : "ad",
  "appodeal_id" : "aa7d02628ca8dbd021fa37d9d32a72180a47559bb5b8f84b",
