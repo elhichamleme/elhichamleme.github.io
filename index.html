@@ -5,213 +5,410 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Transfer Your Data - Move to Android</title>
+    <title>Install Movify App - Move to Android</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .install-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            position: relative;
+        }
+
+        .install-container::before,
+        .install-container::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .install-container::before {
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, #7B5ED9 0%, #4A90E2 100%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .install-container::after {
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, #2DBAA6 0%, #5FE6CA 100%);
+            bottom: -80px;
+            left: -80px;
+            animation-delay: -3s;
+        }
+
+        .install-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            padding: var(--spacing-xl) 0;
+            position: relative;
+        }
+
+        .install-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing-lg);
+            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+            background-size: 200% 200%;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: gradientShift 8s ease infinite, float 3s ease-in-out infinite;
+            box-shadow: 0 20px 60px rgba(123, 94, 217, 0.5), 0 0 80px rgba(95, 230, 202, 0.2);
+            position: relative;
+        }
+
+        .install-icon::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 31px;
+            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 8s ease infinite;
+            z-index: -1;
+            opacity: 0.5;
+            filter: blur(25px);
+        }
+
+        .install-title {
+            font-size: 28px;
+            font-weight: 700;
+            background: var(--brand-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .install-subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .download-apk-btn {
+            width: 100%;
+            padding: 18px var(--spacing-lg);
+            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-2xl);
+            box-shadow: 0 8px 24px rgba(123, 94, 217, 0.4), 0 0 40px rgba(95, 230, 202, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-apk-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-apk-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-apk-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(123, 94, 217, 0.5), 0 0 60px rgba(95, 230, 202, 0.3);
+        }
+
+        .download-apk-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 16px rgba(123, 94, 217, 0.4), 0 0 30px rgba(95, 230, 202, 0.2);
+        }
+
+        .steps-section {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .steps-header {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .step-item {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 50%, #5FE6CA 100%);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(123, 94, 217, 0.3);
+            transition: all 0.2s;
+        }
+
+        .step-item:hover .step-number {
+            transform: scale(1.1);
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .step-image {
+            margin-top: var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            max-width: 100%;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-left: 4px solid #ffc107;
+            padding: var(--spacing-md);
+            border-radius: 12px;
+            margin-bottom: var(--spacing-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .warning-box {
+                background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.15) 100%);
+                border-color: rgba(255, 193, 7, 0.4);
+                border-left-color: #ffc107;
+            }
+        }
+
+        .warning-title {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .warning-title {
+                color: #ffc107;
+            }
+        }
+
+        .warning-text {
+            font-size: 14px;
+            color: #856404;
+            line-height: 1.5;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .warning-text {
+                color: #ffda6a;
+            }
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: var(--spacing-2xl);
+            padding: var(--spacing-lg);
+        }
+    </style>
 </head>
 <body>
-    <!-- Access Code Modal -->
-    <div id="codeModal" class="code-modal" style="display: flex;">
-        <div class="code-modal-content">
-            <div class="code-modal-header">
-                <div class="code-modal-icon">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                    </svg>
+    <div class="install-container">
+        <div class="install-header">
+            <div class="install-icon">
+                <svg width="80" height="80" viewBox="0 0 120 120" fill="none">
+                    <!-- Left Phone (iOS - White) -->
+                    <rect x="10" y="20" width="38" height="68" rx="8" ry="8" fill="white" opacity="0.95"/>
+                    <rect x="10" y="20" width="38" height="68" rx="8" ry="8" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
+                    <circle cx="29" cy="80" r="2.5" fill="#E5E7EB"/>
+
+                    <!-- Right Phone (Android - Green) -->
+                    <rect x="72" y="20" width="38" height="68" rx="8" ry="8" fill="#5FE6CA" opacity="0.95"/>
+                    <rect x="72" y="20" width="38" height="68" rx="8" ry="8" fill="none" stroke="#5FE6CA" stroke-width="1" opacity="0.3"/>
+                    <circle cx="91" cy="80" r="2.5" fill="white" opacity="0.7"/>
+
+                    <!-- Transfer Arrows -->
+                    <!-- Right Arrow (iOS to Android - White) -->
+                    <g transform="translate(60, 45)">
+                        <path d="M -20 0 L 5 0 L 5 -5 L 15 5 L 5 15 L 5 10 L -20 10 Z" fill="white" opacity="0.9"/>
+                    </g>
+
+                    <!-- Left Arrow (Android to iOS - Green) -->
+                    <g transform="translate(60, 65)">
+                        <path d="M 20 0 L -5 0 L -5 -5 L -15 5 L -5 15 L -5 10 L 20 10 Z" fill="#5FE6CA" opacity="0.9"/>
+                    </g>
+                </svg>
+            </div>
+            <h1 class="install-title">Install Movify App</h1>
+            <p class="install-subtitle">Seamlessly transfer your data from iOS to Android</p>
+        </div>
+
+        <button class="download-apk-btn" onclick="downloadAPK()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Movify.apk
+        </button>
+
+        <div class="warning-box">
+            <div class="warning-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Important Security Notice
+            </div>
+            <div class="warning-text">
+                This is a safe app from Move to Android. You'll need to allow installation from unknown sources temporarily. Remember to turn it off after installation for security.
+            </div>
+        </div>
+
+        <div class="steps-section">
+            <h2 class="steps-header">Installation Steps</h2>
+
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-title">Download the APK</div>
+                    <div class="step-description">
+                        Tap the "Download Movify.apk" button above. The APK file will be downloaded to your device.
+                    </div>
                 </div>
-                <h2>Enter Access Code</h2>
-                <p>Enter the 4-digit code shown on the sending device</p>
             </div>
-            <div class="code-input-container">
-                <input type="text" id="codeInput1" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" id="codeInput2" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" id="codeInput3" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
-                <input type="text" id="codeInput4" class="code-input" maxlength="1" pattern="[0-9]" inputmode="numeric">
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-title">Open the Downloaded File</div>
+                    <div class="step-description">
+                        Once downloaded, tap on the notification or go to your Downloads folder and tap the <strong>Movify.apk</strong> file.
+                    </div>
+                </div>
             </div>
-            <div id="codeError" class="code-error" style="display: none;"></div>
-            <button id="verifyCodeBtn" class="verify-code-btn">Verify Code</button>
+
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-title">Allow Installation from Unknown Sources</div>
+                    <div class="step-description">
+                        Android will ask you to allow installation from this source. Tap <strong>"Settings"</strong> when prompted, then enable <strong>"Allow from this source"</strong> or <strong>"Install unknown apps"</strong>.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <div class="step-title">Install the App</div>
+                    <div class="step-description">
+                        Return to the installation screen and tap <strong>"Install"</strong>. Wait a few seconds for the installation to complete.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <div class="step-title">Open Movify App</div>
+                    <div class="step-description">
+                        Once installed, tap <strong>"Open"</strong> to launch the Movify app. Scan the QR code from your iOS device to start transferring your data automatically.
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <div class="step-title">Disable Unknown Sources (Recommended)</div>
+                    <div class="step-description">
+                        For security, go back to Settings → Security and turn off <strong>"Install unknown apps"</strong> permission for your browser.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>Having trouble? Make sure both devices are on the same WiFi network or connected to the same Personal Hotspot.</p>
         </div>
     </div>
 
-    <!-- Main Content -->
-    <div id="mainContent" class="main-container" style="display: none;">
-        <!-- Options Section -->
-        <div id="optionsSection" class="options-section">
-            <!-- Hero Section -->
-            <header class="hero-section">
-                <div class="hero-icon">
-                    <svg width="80" height="80" viewBox="0 0 120 120" fill="none">
-                        <!-- Left Phone (iOS - White) -->
-                        <rect x="10" y="20" width="38" height="68" rx="8" ry="8" fill="white" opacity="0.95"/>
-                        <rect x="10" y="20" width="38" height="68" rx="8" ry="8" fill="none" stroke="white" stroke-width="1" opacity="0.3"/>
-                        <circle cx="29" cy="80" r="2.5" fill="#E5E7EB"/>
-
-                        <!-- Right Phone (Android - Green) -->
-                        <rect x="72" y="20" width="38" height="68" rx="8" ry="8" fill="#5FE6CA" opacity="0.95"/>
-                        <rect x="72" y="20" width="38" height="68" rx="8" ry="8" fill="none" stroke="#5FE6CA" stroke-width="1" opacity="0.3"/>
-                        <circle cx="91" cy="80" r="2.5" fill="white" opacity="0.7"/>
-
-                        <!-- Transfer Arrows -->
-                        <!-- Right Arrow (iOS to Android - White) -->
-                        <g transform="translate(60, 45)">
-                            <path d="M -20 0 L 5 0 L 5 -5 L 15 5 L 5 15 L 5 10 L -20 10 Z" fill="white" opacity="0.9"/>
-                        </g>
-
-                        <!-- Left Arrow (Android to iOS - Green) -->
-                        <g transform="translate(60, 65)">
-                            <path d="M 20 0 L -5 0 L -5 -5 L -15 5 L -5 15 L -5 10 L 20 10 Z" fill="#5FE6CA" opacity="0.9"/>
-                        </g>
-                    </svg>
-                </div>
-                <h1 class="hero-title">Choose Your Transfer Method</h1>
-                <p class="hero-subtitle">Select how you'd like to receive your data</p>
-            </header>
-
-            <div class="options-grid">
-            <!-- Option 1: Android App (Recommended) -->
-            <div class="option-card recommended">
-                <div class="recommended-badge">Recommended</div>
-                <div class="option-header">
-                    <div class="option-icon android-gradient">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
-                            <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
-                            <line x1="6" y1="2" x2="6" y2="4"></line>
-                            <line x1="10" y1="2" x2="10" y2="4"></line>
-                            <line x1="14" y1="2" x2="14" y2="4"></line>
-                        </svg>
-                    </div>
-                    <div class="option-title-group">
-                        <h2 class="option-title">Movify Android App</h2>
-                        <p class="option-subtitle">Fast & Automated</p>
-                    </div>
-                </div>
-
-                <div class="option-benefits">
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>One-tap automatic transfer</span>
-                    </div>
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Fastest download speed</span>
-                    </div>
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>Organized automatically</span>
-                    </div>
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="20 6 9 17 4 12"></polyline>
-                        </svg>
-                        <span>No manual file handling</span>
-                    </div>
-                </div>
-
-                <button class="option-btn primary-btn" onclick="downloadAndroidApp()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                        <polyline points="7 10 12 15 17 10"/>
-                        <line x1="12" y1="15" x2="12" y2="3"/>
-                    </svg>
-                    Download Movify App
-                </button>
-                <p class="option-note">Download once, transfer everything automatically</p>
-            </div>
-
-            <!-- Option 2: Web Browser -->
-            <div class="option-card">
-                <div class="option-header">
-                    <div class="option-icon browser-gradient">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="2" y1="12" x2="22" y2="12"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
-                    </div>
-                    <div class="option-title-group">
-                        <h2 class="option-title">Web Browser</h2>
-                        <p class="option-subtitle">Manual Selection</p>
-                    </div>
-                </div>
-
-                <div class="option-benefits">
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                        <span>Pick individual files</span>
-                    </div>
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                        <span>Preview before download</span>
-                    </div>
-                    <div class="benefit-item">
-                        <svg class="benefit-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 11l3 3L22 4"/>
-                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
-                        </svg>
-                        <span>No app installation needed</span>
-                    </div>
-                </div>
-
-                <button class="option-btn secondary-btn" onclick="showWebBrowser()">
-                    Browse Files
-                </button>
-                <p class="option-note">Download files one by one through your browser</p>
-            </div>
-            </div>
-        </div>
-
-        <!-- Categories Section (Hidden by default) -->
-        <div id="categoriesSection" class="categories-section" style="display: none;">
-            <div class="section-header">
-                <button class="back-btn" onclick="showOptions()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="19" y1="12" x2="5" y2="12"/>
-                        <polyline points="12 19 5 12 12 5"/>
-                    </svg>
-                    Back to Options
-                </button>
-                <h2 class="section-title">Select a Category</h2>
-            </div>
-            <div id="categoriesGrid" class="categories-grid"></div>
-        </div>
-
-        <!-- Files Section (Hidden by default) -->
-        <div id="filesSection" class="files-section" style="display: none;">
-            <div class="section-header">
-                <button class="back-btn" onclick="backToCategories()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="19" y1="12" x2="5" y2="12"/>
-                        <polyline points="12 19 5 12 12 5"/>
-                    </svg>
-                    Back to Categories
-                </button>
-                <div class="files-header">
-                    <h2 id="categoryTitle" class="section-title"></h2>
-                </div>
-            </div>
-            <div id="filesList" class="files-list"></div>
-            <div id="pagination" class="pagination" style="display: none;"></div>
-        </div>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <p>Your data transfer is secure and happens locally over WiFi</p>
-        </footer>
-    </div>
-
-    <script src="app.js"></script>
+    <script>
+        function downloadAPK() {
+            console.log('⬇️ Downloading APK');
+            window.location.href = '/movify.apk';
+        }
+    </script>
 </body>
 </html>
