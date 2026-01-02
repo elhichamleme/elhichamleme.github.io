@@ -1,4 +1,4 @@
 {
-"askForReview" : true,
+"askForReview" : false,
   "android-client": "apk"
 }
