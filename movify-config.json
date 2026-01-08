@@ -1,4 +1,4 @@
 {
-"askForReview" : false,
+"askForReview" : true,
   "android-client": "https://www.movifydata.com"
 }
