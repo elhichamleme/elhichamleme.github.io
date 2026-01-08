@@ -2,6 +2,12 @@
 // Data Transfer - Category-Based Web Client with Pagination
 // =================================================================
 
+// Firebase Integration
+// Access Firebase services globally (initialized in firebase-config.js)
+const firebaseAnalytics = window.analytics;
+const firebaseDB = window.db;
+const firebaseStorage = window.storage;
+
 // Application State
 const state = {
     sessionID: null,
@@ -116,6 +122,13 @@ const codeVerification = {
 
                 // Store session ID
                 localStorage.setItem('sessionID', data.sessionID);
+
+                // Track code verification success in Firebase Analytics
+                if (firebaseAnalytics) {
+                    firebaseAnalytics.logEvent('code_verified', {
+                        session_id: data.sessionID
+                    });
+                }
 
                 // Hide modal and show main content with options
                 const modal = document.getElementById('codeModal');
@@ -243,6 +256,15 @@ const categoryBrowser = {
     async loadCategory(category) {
         state.currentCategory = category;
         this.currentPage = 1;
+
+        // Track category view in Firebase Analytics
+        if (firebaseAnalytics) {
+            firebaseAnalytics.logEvent('category_viewed', {
+                category_type: category.type,
+                category_id: category.id,
+                item_count: category.count
+            });
+        }
 
         const filesSection = document.getElementById('filesSection');
         const categoryTitle = document.getElementById('categoryTitle');
@@ -390,6 +412,15 @@ const categoryBrowser = {
 
             console.log(`Downloaded: ${filename}`);
 
+            // Track file download in Firebase Analytics
+            if (firebaseAnalytics) {
+                firebaseAnalytics.logEvent('file_downloaded', {
+                    file_name: filename,
+                    file_size: blob.size,
+                    category: state.currentCategory?.type || 'unknown'
+                });
+            }
+
         } catch (error) {
             console.error('Download error:', error);
             alert(`Failed to download ${filename}. Please try again.`);
@@ -434,6 +465,11 @@ const categoryBrowser = {
 
 async function downloadAndroidApp() {
     try {
+        // Track Android app download initiation
+        if (firebaseAnalytics) {
+            firebaseAnalytics.logEvent('android_app_download_initiated');
+        }
+
         console.log('📡 Fetching config from local server...');
 
         // Fetch config from local server (works offline)
@@ -510,6 +546,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize code verification
     codeVerification.init();
+
+    // Track app initialization in Firebase Analytics
+    if (firebaseAnalytics) {
+        firebaseAnalytics.logEvent('app_initialized', {
+            timestamp: new Date().toISOString()
+        });
+    }
 
     console.log('✅ Application ready!');
 });
