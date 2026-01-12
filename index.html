@@ -5,9 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Install Movify App - Move to Android</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Install Dropwise to transfer your data seamlessly from iOS to Android. Fast, secure, and effortless.">
+    <title>Install Dropwise - Move to Android</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ========================================
+           DESIGN SYSTEM - PREMIUM SAAS AESTHETIC
+           ======================================== */
+
+        :root {
+            /* Primary Color Palette - Deep Blues & Neutrals */
+            --color-primary: #1E3A8A;
+            --color-primary-dark: #1E293B;
+            --color-primary-light: #3B82F6;
+            --color-accent: #06B6D4;
+            --color-accent-hover: #0891B2;
+
+            /* Neutrals */
+            --color-white: #FFFFFF;
+            --color-gray-50: #F8FAFC;
+            --color-gray-100: #F1F5F9;
+            --color-gray-200: #E2E8F0;
+            --color-gray-300: #CBD5E1;
+            --color-gray-400: #94A3B8;
+            --color-gray-500: #64748B;
+            --color-gray-600: #475569;
+            --color-gray-700: #334155;
+            --color-gray-800: #1E293B;
+            --color-gray-900: #0F172A;
+
+            /* Status Colors */
+            --color-success: #10B981;
+            --color-warning: #F59E0B;
+
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+
+            /* Border Radius */
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+            /* Gradients */
+            --brand-gradient: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+        }
+
+        /* ========================================
+           GLOBAL RESET & BASE STYLES
+           ======================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-gray-800);
+            background: linear-gradient(180deg, var(--color-gray-50) 0%, var(--color-white) 100%);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ========================================
+           NAVIGATION BAR
+           ======================================== */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--color-gray-200);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .navbar-logo:hover {
+            opacity: 0.8;
+        }
+
+        .navbar-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xl);
+            list-style: none;
+        }
+
+        .navbar-link {
+            color: var(--color-gray-700);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: var(--font-size-base);
+            transition: color 0.2s ease;
+        }
+
+        .navbar-link:hover {
+            color: var(--color-primary);
+        }
+
+        /* ========================================
+           INSTALL CONTAINER & ANIMATIONS
+           ======================================== */
+
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
@@ -25,59 +191,65 @@
         }
 
         .install-container {
-            max-width: 600px;
+            max-width: 680px;
             margin: 0 auto;
-            padding: var(--spacing-lg);
+            padding: var(--spacing-2xl) var(--spacing-lg);
+            padding-top: calc(72px + var(--spacing-3xl));
             position: relative;
+            min-height: 100vh;
         }
 
+        /* Subtle background effects */
         .install-container::before,
         .install-container::after {
             content: '';
             position: fixed;
             border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
+            filter: blur(100px);
+            opacity: 0.08;
             z-index: -1;
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
         }
 
         .install-container::before {
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle, #7B5ED9 0%, #4A90E2 100%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--color-primary) 0%, var(--color-accent) 100%);
             top: -100px;
-            right: -100px;
+            right: -150px;
         }
 
         .install-container::after {
-            width: 280px;
-            height: 280px;
-            background: radial-gradient(circle, #2DBAA6 0%, #5FE6CA 100%);
-            bottom: -80px;
-            left: -80px;
-            animation-delay: -3s;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--color-accent) 0%, var(--color-primary-light) 100%);
+            bottom: -100px;
+            left: -150px;
+            animation-delay: -4s;
         }
+
+        /* ========================================
+           INSTALL HEADER
+           ======================================== */
 
         .install-header {
             text-align: center;
-            margin-bottom: var(--spacing-2xl);
+            margin-bottom: var(--spacing-3xl);
             padding: var(--spacing-xl) 0;
-            position: relative;
         }
 
         .install-icon {
             width: 120px;
             height: 120px;
             margin: 0 auto var(--spacing-lg);
-            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+            background: var(--brand-gradient);
             background-size: 200% 200%;
-            border-radius: 28px;
+            border-radius: var(--radius-2xl);
             display: flex;
             align-items: center;
             justify-content: center;
             animation: gradientShift 8s ease infinite, float 3s ease-in-out infinite;
-            box-shadow: 0 20px 60px rgba(123, 94, 217, 0.5), 0 0 80px rgba(95, 230, 202, 0.2);
+            box-shadow: var(--shadow-2xl);
             position: relative;
         }
 
@@ -85,46 +257,52 @@
             content: '';
             position: absolute;
             inset: -3px;
-            border-radius: 31px;
-            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+            border-radius: calc(var(--radius-2xl) + 3px);
+            background: var(--brand-gradient);
             background-size: 200% 200%;
             animation: gradientShift 8s ease infinite;
             z-index: -1;
-            opacity: 0.5;
-            filter: blur(25px);
+            opacity: 0.4;
+            filter: blur(20px);
         }
 
         .install-title {
-            font-size: 28px;
+            font-size: var(--font-size-4xl);
             font-weight: 700;
             background: var(--brand-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             margin-bottom: var(--spacing-sm);
+            letter-spacing: -0.02em;
         }
 
         .install-subtitle {
-            font-size: 16px;
-            color: var(--text-secondary);
+            font-size: var(--font-size-lg);
+            color: var(--color-gray-600);
+            font-weight: 500;
         }
+
+        /* ========================================
+           DOWNLOAD BUTTON
+           ======================================== */
 
         .download-apk-btn {
             width: 100%;
-            padding: 18px var(--spacing-lg);
-            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 25%, #2DBAA6 75%, #5FE6CA 100%);
+            padding: 1.125rem var(--spacing-xl);
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
             color: white;
             border: none;
-            border-radius: 16px;
-            font-size: 18px;
-            font-weight: 700;
+            border-radius: var(--radius-xl);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: var(--spacing-sm);
             margin-bottom: var(--spacing-2xl);
-            box-shadow: 0 8px 24px rgba(123, 94, 217, 0.4), 0 0 40px rgba(95, 230, 202, 0.2);
+            box-shadow: var(--shadow-lg);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -147,35 +325,70 @@
 
         .download-apk-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(123, 94, 217, 0.5), 0 0 60px rgba(95, 230, 202, 0.3);
+            box-shadow: var(--shadow-xl);
         }
 
         .download-apk-btn:active {
             transform: translateY(0);
-            box-shadow: 0 4px 16px rgba(123, 94, 217, 0.4), 0 0 30px rgba(95, 230, 202, 0.2);
         }
 
-        .steps-section {
-            background: var(--bg-primary);
-            border-radius: var(--radius-lg);
+        /* ========================================
+           WARNING BOX
+           ======================================== */
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-left: 4px solid var(--color-warning);
             padding: var(--spacing-lg);
-            margin-bottom: var(--spacing-lg);
-            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .warning-title {
+            font-weight: 600;
+            color: var(--color-warning);
+            margin-bottom: var(--spacing-xs);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-size: var(--font-size-base);
+        }
+
+        .warning-text {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-700);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           STEPS SECTION
+           ======================================== */
+
+        .steps-section {
+            background: var(--color-white);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-2xl);
+            margin-bottom: var(--spacing-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-gray-200);
         }
 
         .steps-header {
-            font-size: 20px;
+            font-size: var(--font-size-2xl);
             font-weight: 600;
-            margin-bottom: var(--spacing-lg);
-            color: var(--text-primary);
+            margin-bottom: var(--spacing-xl);
+            color: var(--color-gray-900);
+            letter-spacing: -0.01em;
         }
 
         .step-item {
             display: flex;
-            gap: var(--spacing-md);
-            margin-bottom: var(--spacing-lg);
-            padding-bottom: var(--spacing-lg);
-            border-bottom: 1px solid var(--border-color);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--color-gray-200);
+            transition: all 0.2s ease;
         }
 
         .step-item:last-child {
@@ -184,24 +397,29 @@
             border-bottom: none;
         }
 
+        .step-item:hover {
+            transform: translateX(4px);
+        }
+
         .step-number {
             flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, #7B5ED9 0%, #4A90E2 50%, #5FE6CA 100%);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
             color: white;
-            border-radius: 12px;
+            border-radius: var(--radius-lg);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 18px;
-            box-shadow: 0 4px 12px rgba(123, 94, 217, 0.3);
-            transition: all 0.2s;
+            font-size: var(--font-size-xl);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
         }
 
         .step-item:hover .step-number {
             transform: scale(1.1);
+            box-shadow: var(--shadow-md);
         }
 
         .step-content {
@@ -209,79 +427,97 @@
         }
 
         .step-title {
-            font-size: 16px;
+            font-size: var(--font-size-lg);
             font-weight: 600;
-            color: var(--text-primary);
+            color: var(--color-gray-900);
             margin-bottom: var(--spacing-xs);
         }
 
         .step-description {
-            font-size: 14px;
-            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+            color: var(--color-gray-600);
             line-height: 1.6;
         }
 
-        .step-image {
-            margin-top: var(--spacing-sm);
-            border-radius: var(--radius-sm);
-            max-width: 100%;
-        }
-
-        .warning-box {
-            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 152, 0, 0.1) 100%);
-            border: 1px solid rgba(255, 193, 7, 0.3);
-            border-left: 4px solid #ffc107;
-            padding: var(--spacing-md);
-            border-radius: 12px;
-            margin-bottom: var(--spacing-lg);
-            backdrop-filter: blur(10px);
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .warning-box {
-                background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 152, 0, 0.15) 100%);
-                border-color: rgba(255, 193, 7, 0.4);
-                border-left-color: #ffc107;
-            }
-        }
-
-        .warning-title {
+        .step-description strong {
+            color: var(--color-gray-800);
             font-weight: 600;
-            color: #856404;
-            margin-bottom: var(--spacing-xs);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-xs);
         }
 
-        @media (prefers-color-scheme: dark) {
-            .warning-title {
-                color: #ffc107;
-            }
-        }
-
-        .warning-text {
-            font-size: 14px;
-            color: #856404;
-            line-height: 1.5;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            .warning-text {
-                color: #ffda6a;
-            }
-        }
+        /* ========================================
+           FOOTER NOTE
+           ======================================== */
 
         .footer-note {
             text-align: center;
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-top: var(--spacing-2xl);
-            padding: var(--spacing-lg);
+            color: var(--color-gray-600);
+            font-size: var(--font-size-sm);
+            padding: var(--spacing-xl);
+            background-color: var(--color-white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-gray-200);
+        }
+
+        .footer-note p {
+            margin: 0;
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+           ======================================== */
+
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+
+            .install-container {
+                padding: calc(72px + var(--spacing-xl)) var(--spacing-md) var(--spacing-xl);
+            }
+
+            .install-title {
+                font-size: var(--font-size-3xl);
+            }
+
+            .steps-section {
+                padding: var(--spacing-lg);
+            }
+
+            .step-item {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+
+            .step-number {
+                width: 40px;
+                height: 40px;
+                font-size: var(--font-size-lg);
+            }
         }
     </style>
 </head>
 <body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="/" class="navbar-logo">
+                <svg viewBox="0 0 120 120" fill="none">
+                    <rect x="15" y="25" width="35" height="60" rx="8" fill="#1E3A8A"/>
+                    <rect x="70" y="25" width="35" height="60" rx="8" fill="#06B6D4"/>
+                    <path d="M 50 50 L 70 50 M 65 45 L 70 50 L 65 55" stroke="#1E3A8A" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M 70 70 L 50 70 M 55 65 L 50 70 L 55 75" stroke="#06B6D4" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+                Dropwise
+            </a>
+            <ul class="navbar-menu">
+                <li><a href="#" class="navbar-link">Download</a></li>
+                <li><a href="#" class="navbar-link">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- INSTALL CONTENT -->
     <div class="install-container">
         <div class="install-header">
             <div class="install-icon">
@@ -297,18 +533,15 @@
                     <circle cx="91" cy="80" r="2.5" fill="white" opacity="0.7"/>
 
                     <!-- Transfer Arrows -->
-                    <!-- Right Arrow (iOS to Android - White) -->
                     <g transform="translate(60, 45)">
                         <path d="M -20 0 L 5 0 L 5 -5 L 15 5 L 5 15 L 5 10 L -20 10 Z" fill="white" opacity="0.9"/>
                     </g>
-
-                    <!-- Left Arrow (Android to iOS - Green) -->
                     <g transform="translate(60, 65)">
                         <path d="M 20 0 L -5 0 L -5 -5 L -15 5 L -5 15 L -5 10 L 20 10 Z" fill="#5FE6CA" opacity="0.9"/>
                     </g>
                 </svg>
             </div>
-            <h1 class="install-title">Install Movify App</h1>
+            <h1 class="install-title">Install Dropwise</h1>
             <p class="install-subtitle">Seamlessly transfer your data from iOS to Android</p>
         </div>
 
@@ -318,7 +551,7 @@
                 <polyline points="7 10 12 15 17 10"/>
                 <line x1="12" y1="15" x2="12" y2="3"/>
             </svg>
-            Download Movify Data for Android
+            Download Dropwise for Android
         </button>
 
         <div class="warning-box">
@@ -343,7 +576,7 @@
                 <div class="step-content">
                     <div class="step-title">Download the APK</div>
                     <div class="step-description">
-                        Tap the "Download Movify.apk" button above. The APK file will be downloaded to your device.
+                        Tap the "Download Dropwise.apk" button above. The APK file will be downloaded to your device.
                     </div>
                 </div>
             </div>
@@ -353,7 +586,7 @@
                 <div class="step-content">
                     <div class="step-title">Open the Downloaded File</div>
                     <div class="step-description">
-                        Once downloaded, tap on the notification or go to your Downloads folder and tap the <strong>Movify.apk</strong> file.
+                        Once downloaded, tap on the notification or go to your Downloads folder and tap the <strong>Dropwise.apk</strong> file.
                     </div>
                 </div>
             </div>
@@ -381,9 +614,9 @@
             <div class="step-item">
                 <div class="step-number">5</div>
                 <div class="step-content">
-                    <div class="step-title">Open Movify App</div>
+                    <div class="step-title">Open Dropwise App</div>
                     <div class="step-description">
-                        Once installed, tap <strong>"Open"</strong> to launch the Movify app. Scan the QR code from your iOS device to start transferring your data automatically.
+                        Once installed, tap <strong>"Open"</strong> to launch the Dropwise app. Scan the QR code from your iOS device to start transferring your data automatically.
                     </div>
                 </div>
             </div>
@@ -404,7 +637,28 @@
         </div>
     </div>
 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
+
+    <!-- Firebase Configuration -->
+    <script src="firebase-config.js"></script>
+
+    <!-- JavaScript -->
     <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Download APK function
         function downloadAPK() {
             console.log('⬇️ Downloading APK');
 
@@ -416,25 +670,14 @@
                 });
             }
 
-            window.location.href = '/movify.apk';
+            window.location.href = '/dropwise.apk';
         }
-    </script>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-storage-compat.js"></script>
-
-    <!-- Firebase Configuration -->
-    <script src="firebase-config.js"></script>
-
-    <!-- Track page view -->
-    <script>
+        // Track page view
         document.addEventListener('DOMContentLoaded', () => {
             if (window.analytics) {
                 window.analytics.logEvent('page_view', {
-                    page_title: 'APK Installation Page',
+                    page_title: 'Dropwise APK Installation Page',
                     page_location: window.location.href,
                     page_path: window.location.pathname
                 });
