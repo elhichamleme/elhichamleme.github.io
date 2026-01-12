@@ -1,4 +1,6 @@
 {
 "askForReview" : true,
-  "android-client": "https://www.dropwisedata.com"
+  "android-client": "https://www.dropwise.help",
+  "free-tier": "500M",
+  "free-transfers": "1"
 }
