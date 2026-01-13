@@ -1,6 +1,6 @@
 {
 "askForReview" : true,
-  "android-client": "https://www.dropwise.help",
+  "android-client": "apk",
   "free-tier": "500M",
   "free-transfers": "1",
   "showPaywall": true
