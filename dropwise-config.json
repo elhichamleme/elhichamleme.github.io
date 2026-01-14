@@ -3,5 +3,5 @@
   "android-client": "https://www.dropwise.help",
   "free-tier": "500G",
   "free-transfers": "100",
-  "showPaywall": true
+  "showPaywall": false
 }
