@@ -1,5 +1,5 @@
 {
-"askForReview" : false,
+"askForReview" : true,
 "showPaywall": false,
 "shortcuts" :  {
   "askForReview": true,
