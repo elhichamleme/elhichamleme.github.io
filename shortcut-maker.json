@@ -1,5 +1,6 @@
 {
-"askForReview" : true,
+"askForReviewEarly" : true,
+"askForReviewAfterUsage" : 1,
 "showPaywall": false,
 "shortcuts" :  {
   "askForReview": true,
