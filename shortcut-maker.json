@@ -1,7 +1,7 @@
 {
 "askForReviewEarly" : true,
 "askForReviewAfterUsage" : 1,
-"activatePro": false,
+"activatePro": true,
 "shortcuts" :  {
   "askForReview": true,
   "showPaywall": true,
