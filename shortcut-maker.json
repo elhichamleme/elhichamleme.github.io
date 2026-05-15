@@ -2,6 +2,7 @@
 "askForReviewEarly" : false,
 "askForReviewAfterUsage" : 5,
 "activatePro": false,
+"revenueCatApiKey": "",
 "shortcuts" :  {
   "askForReview": true,
   "showPaywall": true,
