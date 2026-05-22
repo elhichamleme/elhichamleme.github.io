@@ -1,5 +1,5 @@
 {
-"askForReviewEarly" : false,
+"askForReviewEarly" : true,
 "askForReviewAfterUsage" : 5,
 "activatePro": true,
 "revenueCatApiKey": "",
