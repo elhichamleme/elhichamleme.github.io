@@ -1,6 +1,6 @@
 {
-"askForReviewEarly" : false,
-"askForReviewAfterUsage" : 5,
+"askForReviewEarly" : true,
+"askForReviewAfterUsage" : 3,
 "activatePro": false,
 "revenueCatApiKey": "",
 "shortcuts" :  {
